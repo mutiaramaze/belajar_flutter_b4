@@ -6,7 +6,7 @@ class Tugas2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 248, 240, 253),
+      backgroundColor: const Color.fromARGB(255, 248, 229, 250),
       appBar: AppBar(
         title: Text("Profil Lengkap"),
         backgroundColor: const Color.fromARGB(255, 118, 169, 236),
@@ -33,7 +33,12 @@ class Tugas2 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(Icons.mail_outline, size: 15, color: Colors.red),
+              Icon(
+                Icons.mail_outline,
+                size: 15,
+                color: const Color.fromARGB(255, 2, 0, 0),
+              ),
+
               Text("riznimutiara.f@gmail.com", style: TextStyle(fontSize: 15)),
             ],
           ),
@@ -42,7 +47,12 @@ class Tugas2 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(Icons.smartphone, size: 15, color: Colors.red),
+              Icon(
+                Icons.smartphone,
+                size: 15,
+                color: const Color.fromARGB(255, 15, 1, 0),
+              ),
+
               Text("081210982177", style: TextStyle(fontSize: 15)),
             ],
           ),
