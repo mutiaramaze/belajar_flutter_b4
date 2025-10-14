@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Tugas2 extends StatelessWidget {
@@ -10,7 +9,7 @@ class Tugas2 extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 248, 240, 253),
       appBar: AppBar(
         title: Text("Profil Lengkap"),
-        backgroundColor: const Color.fromARGB(255, 235, 214, 250),
+        backgroundColor: const Color.fromARGB(255, 118, 169, 236),
       ),
 
       body: Column(
@@ -93,6 +92,40 @@ class Tugas2 extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(30),
+            child: Column(
+              children: [
+                Text("Deskripsi Profil : "),
+                Text(
+                  "Learning coding was totally not on my 2025 bingo list, this is super new for me, seriously. I actually prefer chemistry, but I guees when you talk about the future, Technology is a pretty big deal. I've been trying so hard to study dart and flutter. I just hope I haven't gone insane.",
+                ),
+                SizedBox(height: 20),
+              ],
+            ),
+          ),
+
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 245, 162, 131),
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.blue.shade200,
+                        Colors.pink.shade50,
+                        Colors.blue.shade100,
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
