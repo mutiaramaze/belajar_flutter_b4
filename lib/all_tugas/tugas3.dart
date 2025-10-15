@@ -56,14 +56,14 @@ class Tugas3 extends StatelessWidget {
 
                     SizedBox(height: 15),
 
-                    Text("Nomor"),
+                    Text("Nomor Handphone"),
                     TextField(
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10.0),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        hintText: "Masukan Nomor Anda",
+                        hintText: "Masukan Nomor Handphone Anda",
                       ),
                     ),
 
