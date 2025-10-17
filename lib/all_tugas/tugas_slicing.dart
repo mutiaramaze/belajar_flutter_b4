@@ -1,0 +1,133 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+class TugasSlicing extends StatefulWidget {
+  const TugasSlicing({super.key});
+
+  @override
+  State<TugasSlicing> createState() => _TugasSlicingState();
+}
+
+class _TugasSlicingState extends State<TugasSlicing> {
+  @override
+  Widget build(BuildContext context) {
+    List<String> text = ["Login", "Facebook", "Gmail"];
+    return Scaffold(
+      backgroundColor: Color(0xFF00224F),
+
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(5),
+            child: ListTile(
+              leading: Image(image: AssetImage("assets/images/bar.png")),
+            ),
+          ),
+          Padding(padding: const EdgeInsets.all(5)),
+          Image(image: AssetImage("assets/images/login.png")),
+          SizedBox(height: 50),
+          Text(
+            "Hello Welcome Back",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            "Welcome back please",
+            style: TextStyle(color: Colors.grey[300]),
+          ),
+          Text("sign in again", style: TextStyle(color: Colors.grey[300])),
+
+          Column(
+            children: [
+              Padding(padding: const EdgeInsets.all(50)),
+              Row(
+                children: [
+                  Icon(Icons.mail, color: Colors.grey[350]),
+                  Text("Email", style: TextStyle(color: Colors.white)),
+                ],
+              ),
+              Row(
+                children: [
+                  Icon(Icons.lock, color: Colors.grey[350]),
+                  Text("Password", style: TextStyle(color: Colors.white)),
+                ],
+              ),
+
+              SizedBox(height: 30),
+
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  minimumSize: Size(300, 45),
+                ),
+                onPressed: () {
+                  print("Tekan sekali");
+                  setState(() {});
+                },
+                child: Text(
+                  "Login",
+                  style: TextStyle(color: (Color(0xFF00224F))),
+                ),
+              ),
+
+              SizedBox(height: 50),
+              Text("or", style: TextStyle(color: Colors.white, fontSize: 15)),
+
+              SizedBox(height: 10),
+
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 108, 127, 168),
+                  minimumSize: Size(200, 40),
+                ),
+                onPressed: () {
+                  print("Tekan sekali");
+                  setState(() {});
+                },
+                child: Text("Facebook", style: TextStyle(color: Colors.white)),
+              ),
+              SizedBox(height: 10),
+
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 108, 127, 168),
+                  minimumSize: Size(200, 40),
+                ),
+                onPressed: () {
+                  print("Tekan sekali");
+                  setState(() {});
+                },
+
+                child: Text("Gmail", style: TextStyle(color: Colors.white)),
+              ),
+
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Already have an account?",
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 207, 207, 207),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      print("Tombol teks ditekan");
+                    },
+                    child: Text("Sign in"),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

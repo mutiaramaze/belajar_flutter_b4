@@ -1,5 +1,6 @@
 import 'package:belajar_flutter_b4/all_tugas/tugas5.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas5.dart';
+import 'package:belajar_flutter_b4/all_tugas/tugas_slicing.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home: const Tugas5(),
+      home: const TugasSlicing(),
     );
   }
 }
