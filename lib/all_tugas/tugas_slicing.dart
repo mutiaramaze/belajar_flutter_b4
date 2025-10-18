@@ -1,3 +1,5 @@
+import 'package:belajar_flutter_b4/all_tugas/elevatedbutton.dart';
+import 'package:belajar_flutter_b4/all_tugas/textfield.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -11,22 +13,38 @@ class TugasSlicing extends StatefulWidget {
 class _TugasSlicingState extends State<TugasSlicing> {
   @override
   Widget build(BuildContext context) {
-    List<String> text = ["Login", "Facebook", "Gmail"];
     return Scaffold(
       backgroundColor: Color(0xFF00224F),
 
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.end,
         children: [
+          SizedBox(height: 50),
           Padding(
-            padding: const EdgeInsets.all(5),
-            child: ListTile(
-              leading: Image(image: AssetImage("assets/images/bar.png")),
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.keyboard_arrow_left_sharp,
+                  color: Colors.white,
+                  size: 30,
+                ),
+                SizedBox(width: 120),
+                Text(
+                  "Login",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Spacer(),
+              ],
             ),
           ),
-          Padding(padding: const EdgeInsets.all(5)),
-          Image(image: AssetImage("assets/images/login.png")),
-          SizedBox(height: 50),
+          SizedBox(height: 40),
           Text(
             "Hello Welcome Back",
             style: TextStyle(
@@ -42,89 +60,108 @@ class _TugasSlicingState extends State<TugasSlicing> {
           ),
           Text("sign in again", style: TextStyle(color: Colors.grey[300])),
 
-          Column(
-            children: [
-              Padding(padding: const EdgeInsets.all(50)),
-              Row(
-                children: [
-                  Icon(Icons.mail, color: Colors.grey[350]),
-                  Text("Email", style: TextStyle(color: Colors.white)),
-                ],
-              ),
-              Row(
-                children: [
-                  Icon(Icons.lock, color: Colors.grey[350]),
-                  Text("Password", style: TextStyle(color: Colors.white)),
-                ],
-              ),
+          Padding(
+            padding: const EdgeInsets.all(45.0),
+            child: Column(
+              children: [
+                Padding(padding: const EdgeInsets.all(10)),
 
-              SizedBox(height: 30),
-
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  minimumSize: Size(300, 45),
+                customTextField(
+                  hintText: "Email",
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                onPressed: () {
-                  print("Tekan sekali");
-                  setState(() {});
-                },
-                child: Text(
-                  "Login",
-                  style: TextStyle(color: (Color(0xFF00224F))),
+                customTextField(
+                  hintText: "Password",
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
 
-              SizedBox(height: 50),
-              Text("or", style: TextStyle(color: Colors.white, fontSize: 15)),
+                SizedBox(height: 30),
 
-              SizedBox(height: 10),
-
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 108, 127, 168),
-                  minimumSize: Size(200, 40),
-                ),
-                onPressed: () {
-                  print("Tekan sekali");
-                  setState(() {});
-                },
-                child: Text("Facebook", style: TextStyle(color: Colors.white)),
-              ),
-              SizedBox(height: 10),
-
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 108, 127, 168),
-                  minimumSize: Size(200, 40),
-                ),
-                onPressed: () {
-                  print("Tekan sekali");
-                  setState(() {});
-                },
-
-                child: Text("Gmail", style: TextStyle(color: Colors.white)),
-              ),
-
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Already have an account?",
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    minimumSize: Size(300, 45),
+                  ),
+                  onPressed: () {
+                    print("Tekan sekali");
+                    setState(() {});
+                  },
+                  child: Text(
+                    "Login",
                     style: TextStyle(
-                      color: const Color.fromARGB(255, 207, 207, 207),
+                      color: (Color(0xFF00224F)),
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      print("Tombol teks ditekan");
-                    },
-                    child: Text("Sign in"),
+                ),
+
+                SizedBox(height: 50),
+
+                Container(
+                  width: 322,
+                  height: 32,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 0.5,
+                          color: const Color.fromARGB(255, 230, 230, 230),
+                        ),
+                      ),
+                      SizedBox(width: 5),
+                      Text(
+                        "or",
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
+                      SizedBox(width: 5),
+                      Expanded(
+                        child: Container(
+                          height: 0.5,
+                          color: const Color.fromARGB(255, 230, 230, 230),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ],
+                ),
+
+                SizedBox(height: 10),
+
+                ButtonWidget(
+                  image: "assets/images/facebook.png",
+                  text: "Facebook",
+                ),
+                ButtonWidget(image: "assets/images/google.png", text: "Gmail"),
+                SizedBox(height: 10),
+
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Already have an account?",
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 207, 207, 207),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        print("Tombol teks ditekan");
+                      },
+                      child: Text("Sign in"),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
