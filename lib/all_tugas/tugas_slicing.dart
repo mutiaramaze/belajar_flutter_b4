@@ -59,12 +59,12 @@ class _TugasSlicingState extends State<TugasSlicing> {
             style: TextStyle(color: Colors.grey[300]),
           ),
           Text("sign in again", style: TextStyle(color: Colors.grey[300])),
-
+          SizedBox(height: 25),
           Padding(
             padding: const EdgeInsets.all(45.0),
             child: Column(
               children: [
-                Padding(padding: const EdgeInsets.all(10)),
+                Padding(padding: const EdgeInsets.all(20)),
 
                 customTextField(
                   hintText: "Email",
