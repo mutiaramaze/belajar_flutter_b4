@@ -9,10 +9,12 @@ class customTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
         contentPadding: EdgeInsets.all(10),
         border: UnderlineInputBorder(),
         hintText: hintText,
+        hintStyle: TextStyle(color: Colors.white),
         prefixIcon: prefixIcon,
       ),
     );
