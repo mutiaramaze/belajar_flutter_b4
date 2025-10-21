@@ -1,5 +1,7 @@
 import 'package:belajar_flutter_b4/all_tugas/elevatedbutton.dart';
+import 'package:belajar_flutter_b4/all_tugas/homepage.dart';
 import 'package:belajar_flutter_b4/all_tugas/textfield.dart';
+import 'package:belajar_flutter_b4/main.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -91,8 +93,10 @@ class _TugasSlicingState extends State<TugasSlicing> {
                     minimumSize: Size(300, 45),
                   ),
                   onPressed: () {
-                    print("Tekan sekali");
-                    setState(() {});
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Homepage()),
+                    );
                   },
                   child: Text(
                     "Login",
@@ -114,7 +118,7 @@ class _TugasSlicingState extends State<TugasSlicing> {
                       Expanded(
                         child: Container(
                           height: 0.5,
-                          color: const Color.fromARGB(255, 230, 230, 230),
+                          color: const Color.fromARGB(255, 223, 223, 223),
                         ),
                       ),
                       SizedBox(width: 5),
@@ -126,7 +130,7 @@ class _TugasSlicingState extends State<TugasSlicing> {
                       Expanded(
                         child: Container(
                           height: 0.5,
-                          color: const Color.fromARGB(255, 230, 230, 230),
+                          color: const Color.fromARGB(255, 223, 223, 223),
                         ),
                       ),
                     ],
