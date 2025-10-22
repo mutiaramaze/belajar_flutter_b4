@@ -1,9 +1,11 @@
+import 'package:belajar_flutter_b4/all_tugas/Tugas9Flutter/drawer9.dart';
 import 'package:belajar_flutter_b4/all_tugas/homepage.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas8.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas5.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas5.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas7/drawer.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas7/tugas7.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas9Flutter/tugas9.dart';
 
 import 'package:belajar_flutter_b4/all_tugas/tugas_slicing.dart';
 import 'package:belajar_flutter_b4/uvol/tes.dart';
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home: const Tugas8(),
+      home: const DrawerTugas9(),
     );
   }
 }
