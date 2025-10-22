@@ -60,28 +60,30 @@ class _SwitchedState extends State<Switched> {
   bool isSwitch = false;
 
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Switch(
-            value: isSwitch,
-            onChanged: (value) {
-              setState(() {
-                isSwitch = value;
-              });
-            },
+    return Scaffold(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Switch(
+              value: isSwitch,
+              onChanged: (value) {
+                setState(() {
+                  isSwitch = value;
+                });
+              },
+            ),
           ),
-        ),
-        Text(isSwitch ? "Mode gelap aktif" : "Mode terang aktif"),
-        Container(
-          height: 500,
-          width: double.infinity,
-          color: isSwitch
-              ? Colors.black
-              : const Color.fromARGB(255, 208, 228, 245),
-        ),
-      ],
+          Text(isSwitch ? "Mode gelap aktif" : "Mode terang aktif"),
+          Container(
+            height: 500,
+            width: double.infinity,
+            color: isSwitch
+                ? Colors.black
+                : const Color.fromARGB(255, 208, 228, 245),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -104,39 +106,41 @@ class _DropdownState extends State<Dropdown> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: DropdownButton(
-            value: dropDownValue,
-            items: listProduct.map((String val) {
-              return DropdownMenuItem(
-                value: val,
-                child: Text(val, style: TextStyle(color: Colors.black)),
-              );
-            }).toList(),
-            onChanged: (value) {
-              setState(() {
-                dropDownValue = value;
-              });
-              print(dropDownValue);
-            },
+    return Scaffold(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: DropdownButton(
+              value: dropDownValue,
+              items: listProduct.map((String val) {
+                return DropdownMenuItem(
+                  value: val,
+                  child: Text(val, style: TextStyle(color: Colors.black)),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  dropDownValue = value;
+                });
+                print(dropDownValue);
+              },
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Row(
-            children: [
-              Text(
-                "Anda memilih kategori: ",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Text(dropDownValue.toString()),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              children: [
+                Text(
+                  "Anda memilih kategori: ",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(dropDownValue.toString()),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -153,39 +157,41 @@ class _DatePickerState extends State<DatePicker> {
   DateTime? selectedPicked = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Tanggal lahir: ",
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
+    return Scaffold(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Tanggal lahir: ",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
 
-              Text(DateFormat('yyyy, dd MMMM').format(selectedPicked!)),
-            ],
+                Text(DateFormat('yyyy, dd MMMM').format(selectedPicked!)),
+              ],
+            ),
           ),
-        ),
 
-        ElevatedButton(
-          onPressed: () async {
-            final DateTime? picked = await showDatePicker(
-              context: context,
-              firstDate: DateTime(1900),
-              lastDate: DateTime(2025),
-            );
-            if (picked != null) ;
-            print(picked);
-            setState(() {
-              selectedPicked = picked;
-            });
-          },
-          child: Text("Pilih tanggal lahir"),
-        ),
-      ],
+          ElevatedButton(
+            onPressed: () async {
+              final DateTime? picked = await showDatePicker(
+                context: context,
+                firstDate: DateTime(1900),
+                lastDate: DateTime(2025),
+              );
+              if (picked != null) ;
+              print(picked);
+              setState(() {
+                selectedPicked = picked;
+              });
+            },
+            child: Text("Pilih tanggal lahir"),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -202,42 +208,44 @@ class _TimePickerState extends State<TimePicker> {
   TimeOfDay? SelectedTime;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: ElevatedButton(
-            onPressed: () async {
-              final TimeOfDay? picked = await showTimePicker(
-                context: context,
-                initialTime: TimeOfDay.now(),
-              );
-              if (picked != null) {
-                print(picked);
-                setState(() {
-                  SelectedTime = picked;
-                });
-              }
-            },
-            child: Text("Pilih waktu pengingat"),
+    return Scaffold(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ElevatedButton(
+              onPressed: () async {
+                final TimeOfDay? picked = await showTimePicker(
+                  context: context,
+                  initialTime: TimeOfDay.now(),
+                );
+                if (picked != null) {
+                  print(picked);
+                  setState(() {
+                    SelectedTime = picked;
+                  });
+                }
+              },
+              child: Text("Pilih waktu pengingat"),
+            ),
           ),
-        ),
-        SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Pengingat diatur pukul: ",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              SelectedTime != null
-                  ? SelectedTime!.format(context)
-                  : "Belum dipilih",
-            ),
-          ],
-        ),
-      ],
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Pengingat diatur pukul: ",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(
+                SelectedTime != null
+                    ? SelectedTime!.format(context)
+                    : "Belum dipilih",
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
