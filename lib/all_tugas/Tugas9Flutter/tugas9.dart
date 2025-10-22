@@ -204,37 +204,7 @@ class _Tugass9State extends State<Tugass9> {
       itemBuilder: (BuildContext context, int index) {
         final item = produkKesehatan[index];
         return ListTile(
-          onTap: () {
-            //Versi 1
-            // ScaffoldMessenger.of(context).showSnackBar(
-            //   SnackBar(
-            //     backgroundColor: AppColor.army1,
-            //     content: Text(
-            //       "${item["name"]} ${item["price"].toString().toRPCurrency()} aja",
-            //     ),
-            //   ),
-            // );
-
-            //Versi 2
-            // Fluttertoast.showToast(
-            //   backgroundColor: Colors.blue,
-            //   msg:
-            //       "${item["name"]} ${item["price"].toString().toRPCurrency()} aja",
-            // );
-
-            //Versi 3
-            // DelightToastBar(
-            //   autoDismiss: true,
-            //   snackbarDuration: Duration(milliseconds: 2000),
-            //   builder: (context) => ToastCard(
-            //     leading: Icon(Icons.flutter_dash, size: 28),
-            //     title: Text(
-            //       "${item["name"]} ${item["price"].toString().toRPCurrency()} aja",
-            //       style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
-            //     ),
-            //   ),
-            // ).show(context);
-          },
+          onTap: () {},
           tileColor: item.backgroundColor,
           leading: Image.asset(item.image, width: 60),
           title: Text(item.name),
