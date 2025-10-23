@@ -10,12 +10,13 @@ class DrawerTugas9 extends StatefulWidget {
 
 class _DrawerTugas9State extends State<DrawerTugas9> {
   int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = [
-    // Center(child: Text("Home")),
-    Tugas9(),
-    TugasKe9(),
-    Tugass9(),
+  static const List<String> _titles = [
+    "List View List",
+    "List View Map",
+    "List View Model",
   ];
+
+  static const List<Widget> _widgetOptions = [Tugas9(), TugasKe9(), Tugass9()];
   void onTapDrawer(int index) {
     setState(() {
       _selectedIndex = index;
@@ -27,13 +28,13 @@ class _DrawerTugas9State extends State<DrawerTugas9> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tugas 9 Flutter"),
+        title: Text(_titles[_selectedIndex]),
         backgroundColor: Color.fromARGB(255, 137, 154, 253),
       ),
       drawer: Drawer(
         child: ListView(
           children: [
-            ListTile(title: Text("Tugas 9")),
+            ListTile(title: Text("Tugas 9 Flutter")),
             Divider(),
 
             ListTile(

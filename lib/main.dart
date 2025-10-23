@@ -1,3 +1,6 @@
+import 'package:belajar_flutter_b4/all_tugas/Tugas10%20Flutter/thankspage.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas10%20Flutter/tugas10.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas10%20Flutter/tugas10.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas9Flutter/drawer9.dart';
 import 'package:belajar_flutter_b4/all_tugas/homepage.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas8.dart';
@@ -41,7 +44,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home: const DrawerTugas9(),
+      home: const Tugas10(),
     );
   }
 }

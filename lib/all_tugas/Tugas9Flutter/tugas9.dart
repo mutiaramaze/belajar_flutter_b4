@@ -127,7 +127,7 @@ class _Tugass9State extends State<Tugass9> {
   final List<KesehatanModel> produkKesehatan = [
     KesehatanModel(
       name: "Antiseptik",
-      price: 5000,
+      price: 25000,
       description: "Segar",
       backgroundColor: AppColor.a,
       image: AppImage.antiseptik,
@@ -155,7 +155,7 @@ class _Tugass9State extends State<Tugass9> {
     ),
     KesehatanModel(
       name: "Komix Herbal",
-      price: 2000,
+      price: 12000,
       description: "Segar",
       backgroundColor: AppColor.a,
       image: AppImage.komixherbal,
@@ -165,7 +165,7 @@ class _Tugass9State extends State<Tugass9> {
       price: 5000,
       description: "Segar",
       backgroundColor: AppColor.b,
-      image: AppImage.komixherbal,
+      image: AppImage.nebulizer,
     ),
     KesehatanModel(
       name: "Plester",
