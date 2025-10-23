@@ -47,7 +47,7 @@ class _ThankspageState extends State<Thankspage> {
             child: Center(
               child: Text(
                 "Terimakasih ${widget.name} dari ${widget.city} telah mendaftar",
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 15),
               ),
             ),
           ),
