@@ -1,22 +1,27 @@
+import 'package:belajar_flutter_b4/all_tugas/Tugas10%20Flutter/thankspage.dart';
 import 'package:belajar_flutter_b4/all_tugas/elevatedbutton.dart';
 import 'package:belajar_flutter_b4/all_tugas/homepage.dart';
 import 'package:belajar_flutter_b4/all_tugas/widgets/textfield.dart';
-import 'package:belajar_flutter_b4/main.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class TugasSlicing extends StatefulWidget {
-  const TugasSlicing({super.key});
+class LoginCad extends StatefulWidget {
+  const LoginCad({super.key});
 
   @override
-  State<TugasSlicing> createState() => _TugasSlicingState();
+  State<LoginCad> createState() => _LoginCadState();
 }
 
-class _TugasSlicingState extends State<TugasSlicing> {
+class _LoginCadState extends State<LoginCad> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
+
+  bool isVisibility = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 103, 139, 185),
+      backgroundColor: Color.fromARGB(255, 93, 149, 221),
 
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -68,23 +73,22 @@ class _TugasSlicingState extends State<TugasSlicing> {
               children: [
                 Padding(padding: const EdgeInsets.all(20)),
 
-                customTextField(
-                  hintText: "Email",
-                  prefixIcon: Icon(
-                    Icons.email,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                customTextField(
-                  hintText: "Password",
-                  prefixIcon: Icon(
-                    Icons.lock,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
+                // customTextField(
+                //   hintText: "Email",
+                //   prefixIcon: Icon(
+                //     Icons.email,
+                //     color: Colors.white,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
+                // customTextField(
+                //   hintText: "Password",
+                //   prefixIcon: Icon(
+                //     Icons.lock,
+                //     color: Colors.white,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
                 SizedBox(height: 30),
 
                 ElevatedButton(

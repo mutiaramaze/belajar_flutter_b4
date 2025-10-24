@@ -1,15 +1,13 @@
-import 'package:belajar_flutter_b4/all_tugas/tugas7/tugas7.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
-class DrawerTugas9 extends StatefulWidget {
-  const DrawerTugas9({super.key});
+class DrawerTugas11 extends StatefulWidget {
+  const DrawerTugas11({super.key});
 
   @override
-  State<DrawerTugas9> createState() => _DrawerTugas9State();
+  State<DrawerTugas11> createState() => _DrawerTugas11State();
 }
 
-class _DrawerTugas9State extends State<DrawerTugas9> {
+class _DrawerTugas11State extends State<DrawerTugas11> {
   int _selectedIndex = 0;
   static const List<String> _titles = [
     "List View List",
@@ -35,7 +33,7 @@ class _DrawerTugas9State extends State<DrawerTugas9> {
       drawer: Drawer(
         child: ListView(
           children: [
-            ListTile(title: Text("Tugas 11     ")),
+            ListTile(title: Text("Tugas 11 ")),
             Divider(),
 
             ListTile(
@@ -62,6 +60,15 @@ class _DrawerTugas9State extends State<DrawerTugas9> {
               },
               leading: Icon(Icons.arrow_drop_down),
               title: Text("List view model"),
+            ),
+            Divider(),
+
+            ListTile(
+              onTap: () {
+                onTapDrawer(3);
+              },
+              leading: Icon(Icons.arrow_drop_down),
+              title: Text("CR Widget"),
             ),
             Divider(),
           ],

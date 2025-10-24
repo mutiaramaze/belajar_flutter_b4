@@ -1,8 +1,14 @@
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/view/create_student.dart';
+import 'package:belajar_flutter_b4/uvol/login_cad.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/tugass11.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas10%20Flutter/thankspage.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas10%20Flutter/tugas10.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas10%20Flutter/tugas10.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas9Flutter/drawer9.dart';
 import 'package:belajar_flutter_b4/all_tugas/homepage.dart';
+import 'package:belajar_flutter_b4/all_tugas/shared_preferences/drawer_preference.dart';
+import 'package:belajar_flutter_b4/all_tugas/shared_preferences/login.dart';
+import 'package:belajar_flutter_b4/all_tugas/shared_preferences/splash_screen.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas8.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas5.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas5.dart';
@@ -44,7 +50,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home: const Tugas10(),
+      home: const Tugass11(),
     );
   }
 }

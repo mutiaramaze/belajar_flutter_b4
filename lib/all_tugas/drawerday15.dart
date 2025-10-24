@@ -1,6 +1,6 @@
 import 'package:belajar_flutter_b4/all_tugas/tugas2.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas5.dart';
-import 'package:belajar_flutter_b4/tugas1.dart';
+import 'package:belajar_flutter_b4/all_tugas/tugas1.dart';
 import 'package:flutter/material.dart';
 
 class DrawerWidgetDay15 extends StatefulWidget {

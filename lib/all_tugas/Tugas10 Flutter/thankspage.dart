@@ -42,13 +42,10 @@ class _ThankspageState extends State<Thankspage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Center(
-              child: Text(
-                "Terimakasih ${widget.name} dari ${widget.city} telah mendaftar",
-                style: TextStyle(fontSize: 15),
-              ),
+          Center(
+            child: Text(
+              "Terimakasih ${widget.name} dari ${widget.city} telah mendaftar",
+              style: TextStyle(fontSize: 15),
             ),
           ),
         ],
