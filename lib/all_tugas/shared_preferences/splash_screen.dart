@@ -1,4 +1,4 @@
-import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/tugass11.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/login_T11.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas9Flutter/constant/app_image.dart';
 import 'package:belajar_flutter_b4/all_tugas/shared_preferences/preference_handler.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas8.dart';
@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (isLogin != null && isLogin == true) {
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => Tugass11()),
+          MaterialPageRoute(builder: (context) => LoginTugas11()),
           (route) => false,
         );
       } else {

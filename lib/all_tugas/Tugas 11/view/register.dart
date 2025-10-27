@@ -1,18 +1,21 @@
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/databse/db_helper.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/login_T11.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/model/user_model.dart';
+import 'package:belajar_flutter_b4/all_tugas/elevatedbutton.dart';
 import 'package:belajar_flutter_b4/all_tugas/widgets/login_button.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 //Bahas Shared Preference
-class RegisterScreenDay19 extends StatefulWidget {
-  const RegisterScreenDay19({super.key});
+class RegisterT11 extends StatefulWidget {
+  const RegisterT11({super.key});
   static const id = "/register";
   @override
-  State<RegisterScreenDay19> createState() => _RegisterScreenDay19State();
+  State<RegisterT11> createState() => _RegisterT11State();
 }
 
-class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
+class _RegisterT11State extends State<RegisterT11> {
+  final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -50,11 +53,26 @@ class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
                   "Register to access your account",
                   // style: TextStyle(fontSize: 14, color: AppColor.gray88),
                 ),
+
+                height(16),
+                buildTitle("Name"),
+                height(12),
+                buildTextField(
+                  hintText: "Enter your Name",
+                  controller: nameController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Nama tidak boleh kosong";
+                    }
+                    return null;
+                  },
+                ),
+
                 height(24),
                 buildTitle("Username"),
                 height(12),
                 buildTextField(
-                  hintText: "Enter your username",
+                  hintText: "Make your username",
                   controller: usernameController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -107,6 +125,7 @@ class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
                     if (_formKey.currentState!.validate()) {
                       print(emailController.text);
                       final UserModel data = UserModel(
+                        // name: nameController.text
                         email: emailController.text,
                         username: usernameController.text,
                         password: passwordController.text,
@@ -115,12 +134,10 @@ class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
                       Fluttertoast.showToast(msg: "Register Berhasil");
                       // PreferenceHandler.saveLogin(true);
                       Navigator.pop(context);
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => DrawerWidgetDay15(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginTugas11()),
+                      );
                     } else {
                       // showDialog(
                       //   context: context,
@@ -160,28 +177,96 @@ class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
                 // ),
                 height(16),
 
+                SizedBox(height: 15),
+
+                Container(
+                  width: 322,
+                  height: 30,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 0.05,
+                          color: const Color.fromARGB(255, 223, 223, 223),
+                        ),
+                      ),
+                      SizedBox(width: 5),
+                      Text(
+                        "or",
+                        style: TextStyle(
+                          color: const Color.fromARGB(255, 134, 134, 134),
+                          fontSize: 15,
+                        ),
+                      ),
+                      SizedBox(width: 5),
+                      Expanded(
+                        child: Container(
+                          height: 0.5,
+                          color: const Color.fromARGB(255, 223, 223, 223),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                SizedBox(height: 10),
+
+                ButtonWidget(image: "assets/images/google.png", text: "Gmail"),
+                SizedBox(height: 10),
+
+                SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Have an account?",
-                      // style: TextStyle(fontSize: 12, color: AppColor.gray88),
+                      "Already have an account?",
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 128, 127, 127),
+                      ),
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.of(context).pop();
+                        print("Tombol teks ditekan");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginTugas11(),
+                          ),
+                        );
                       },
-                      child: Text(
-                        "Sign In",
-                        style: TextStyle(
-                          // color: AppColor.blueButton,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child: Text("Sign in"),
                     ),
                   ],
                 ),
+
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     Text(
+                //       "Have an account?",
+                //       // style: TextStyle(fontSize: 12, color: AppColor.gray88),
+                //     ),
+                //     TextButton(
+                //       onPressed: () {
+                //         Navigator.of(context).pop();
+                //         Navigator.push(
+                //         context,
+                //         MaterialPageRoute(builder: (context) => LoginTugas11()),
+                //       );
+                //       },
+
+                //       child: Text(
+                //         "Sign In",
+                //         style: TextStyle(
+                //           // color: AppColor.blueButton,
+                //           fontSize: 12,
+                //           fontWeight: FontWeight.bold,
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),

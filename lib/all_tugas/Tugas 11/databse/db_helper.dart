@@ -40,15 +40,15 @@ class DbHelper {
   }
 
   static Future<UserModel?> loginUser({
-    required String email,
-    required String name,
+    required String username,
+    required String password,
   }) async {
     final dbs = await db();
     //query adalah fungsi untuk menampilkan data (READ)
     final List<Map<String, dynamic>> results = await dbs.query(
       tableUser,
-      where: 'email = ? AND name = ?',
-      whereArgs: [email, name],
+      where: 'username = ? AND password = ?',
+      whereArgs: [username, password],
     );
     if (results.isNotEmpty) {
       return UserModel.fromMap(results.first);
