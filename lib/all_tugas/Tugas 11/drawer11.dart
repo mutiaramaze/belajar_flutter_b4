@@ -1,3 +1,4 @@
+import 'package:belajar_flutter_b4/all_tugas/Tugas9Flutter/tugas9.dart';
 import 'package:flutter/material.dart';
 
 class DrawerTugas11 extends StatefulWidget {
@@ -10,6 +11,9 @@ class DrawerTugas11 extends StatefulWidget {
 class _DrawerTugas11State extends State<DrawerTugas11> {
   int _selectedIndex = 0;
   static const List<String> _titles = [
+    //  Tugas9(),
+    //  TugasKe9(),
+    //  Tugass9(),
     "List View List",
     "List View Map",
     "List View Model",
@@ -67,7 +71,7 @@ class _DrawerTugas11State extends State<DrawerTugas11> {
               onTap: () {
                 onTapDrawer(3);
               },
-              leading: Icon(Icons.arrow_drop_down),
+              leading: Icon(Icons.arrow_back_outlined),
               title: Text("CR Widget"),
             ),
             Divider(),
