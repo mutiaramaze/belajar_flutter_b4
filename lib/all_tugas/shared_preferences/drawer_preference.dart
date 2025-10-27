@@ -1,7 +1,8 @@
-import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/tugass11.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/loginT11.dart';
 import 'package:belajar_flutter_b4/all_tugas/shared_preferences/login.dart';
 import 'package:belajar_flutter_b4/all_tugas/shared_preferences/preference_handler.dart';
 import 'package:belajar_flutter_b4/all_tugas/shared_preferences/splash_screen.dart';
+import 'package:belajar_flutter_b4/all_tugas/tugas5.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class DrawerPreference extends StatefulWidget {
 class _DrawerPreferenceState extends State<DrawerPreference> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = [
-    Tugass11(),
+    Tugas5(),
     LoginSharedPreferences(),
     SplashScreen(),
   ];

@@ -13,17 +13,17 @@ class DbHelper {
       join(dbPath, 'tugas11.db'),
       onCreate: (db, version) async {
         await db.execute(
-          "CREATE TABLE $tableUser(id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, email TEXT, name TEXT)",
+          "CREATE TABLE $tableUser(id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, email TEXT, name TEXT, password TEXT)",
         );
       },
+
       onUpgrade: (db, oldVersion, newVersion) async {
-        if (newVersion == 1) {
+        if (newVersion > 1) {
           await db.execute(
             "CREATE TABLE $tableStudent(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, class TEXT, age int)",
           );
         }
       },
-
       version: 1,
     );
   }
@@ -40,15 +40,15 @@ class DbHelper {
   }
 
   static Future<UserModel?> loginUser({
-    required String email,
-    required String name,
+    required String username,
+    required String password,
   }) async {
     final dbs = await db();
     //query adalah fungsi untuk menampilkan data (READ)
     final List<Map<String, dynamic>> results = await dbs.query(
       tableUser,
-      where: 'email = ? AND name = ?',
-      whereArgs: [email, name],
+      where: 'username = ? AND password = ?',
+      whereArgs: [username, password],
     );
     if (results.isNotEmpty) {
       return UserModel.fromMap(results.first);
@@ -69,10 +69,10 @@ class DbHelper {
   }
 
   //GET SISWA
-  static Future<List<StudentModel>> getAllStudent() async {
+  static Future<List<UserModel>> getAllStudent() async {
     final dbs = await db();
-    final List<Map<String, dynamic>> results = await dbs.query(tableStudent);
-    print(results.map((e) => StudentModel.fromMap(e)).toList());
-    return results.map((e) => StudentModel.fromMap(e)).toList();
+    final List<Map<String, dynamic>> results = await dbs.query(tableUser);
+    // print(results.map((e) => StudentModel.fromMap(e)).toList());
+    return results.map((e) => UserModel.fromMap(e)).toList();
   }
 }

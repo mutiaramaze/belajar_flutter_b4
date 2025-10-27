@@ -1,19 +1,18 @@
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/loginT11.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/view/register.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas9Flutter/constant/app_image.dart';
 import 'package:belajar_flutter_b4/all_tugas/shared_preferences/preference_handler.dart';
-import 'package:belajar_flutter_b4/all_tugas/tugas2.dart';
-import 'package:belajar_flutter_b4/all_tugas/tugas8.dart';
-import 'package:belajar_flutter_b4/uvol/login_cad.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class SplashTugas11 extends StatefulWidget {
+  const SplashTugas11({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashTugas11> createState() => _SplashTugas11State();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashTugas11State extends State<SplashTugas11> {
   @override
   void initState() {
     super.initState();
@@ -27,13 +26,13 @@ class _SplashScreenState extends State<SplashScreen> {
       if (isLogin != null && isLogin == true) {
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => Tugas2()),
+          MaterialPageRoute(builder: (context) => LoginTugas11()),
           (route) => false,
         );
       } else {
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => Tugas8()),
+          MaterialPageRoute(builder: (context) => RegisterT11()),
           (route) => false,
         );
       }
@@ -47,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Center(child: Image.asset(AppImage.blackmores)),
+          Center(child: Image.asset(AppImage.antiseptik)),
           Text(
             "Blackmores",
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

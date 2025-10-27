@@ -1,3 +1,6 @@
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/loginT11.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/listdata.dart';
+import 'package:belajar_flutter_b4/all_tugas/shared_preferences/preference_handler.dart';
 import 'package:flutter/material.dart';
 
 class DrawerTugas11 extends StatefulWidget {
@@ -9,13 +12,8 @@ class DrawerTugas11 extends StatefulWidget {
 
 class _DrawerTugas11State extends State<DrawerTugas11> {
   int _selectedIndex = 0;
-  static const List<String> _titles = [
-    "List View List",
-    "List View Map",
-    "List View Model",
-  ];
-
-  static const List<Widget> _widgetOptions = [];
+  static const List<String> _titles = ["Home"];
+  static const List<Widget> _widgetOptions = [ListData()];
   void onTapDrawer(int index) {
     setState(() {
       _selectedIndex = index;
@@ -28,49 +26,32 @@ class _DrawerTugas11State extends State<DrawerTugas11> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_titles[_selectedIndex]),
-        backgroundColor: Color.fromARGB(255, 137, 154, 253),
+        backgroundColor: Colors.brown[200],
       ),
       drawer: Drawer(
         child: ListView(
           children: [
-            ListTile(title: Text("Tugas 11 ")),
-            Divider(),
-
             ListTile(
               onTap: () {
                 onTapDrawer(0);
               },
-              leading: Icon(Icons.check_box),
-              title: Text("List view list"),
+              leading: Icon(Icons.list),
+              title: Text("Home"),
             ),
             Divider(),
 
             ListTile(
               onTap: () {
-                onTapDrawer(1);
+                PreferenceHandler.removeLogin();
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginTugas11()),
+                  (route) => false,
+                );
               },
-              leading: Icon(Icons.swipe),
-              title: Text("List view map"),
+              leading: Icon(Icons.outbond),
+              title: Text("LogOut"),
             ),
-            Divider(),
-
-            ListTile(
-              onTap: () {
-                onTapDrawer(2);
-              },
-              leading: Icon(Icons.arrow_drop_down),
-              title: Text("List view model"),
-            ),
-            Divider(),
-
-            ListTile(
-              onTap: () {
-                onTapDrawer(3);
-              },
-              leading: Icon(Icons.arrow_drop_down),
-              title: Text("CR Widget"),
-            ),
-            Divider(),
           ],
         ),
       ),

@@ -14,9 +14,9 @@ class CRWidgetDay19 extends StatefulWidget {
 
 class _CRWidgetDay19State extends State<CRWidgetDay19> {
   final nameC = TextEditingController();
-  final numberphoneC = TextEditingController();
+  final passwordC = TextEditingController();
   final emailC = TextEditingController();
-  final classC = TextEditingController();
+  final usernameC = TextEditingController();
   getData() {
     DbHelper.getAllStudent();
     setState(() {});
@@ -32,8 +32,8 @@ class _CRWidgetDay19State extends State<CRWidgetDay19> {
           children: [
             Text("Pendaftaran Siswa", style: TextStyle(fontSize: 24)),
             buildTextField(hintText: "Name", controller: nameC),
-            buildTextField(hintText: "Number Phone", controller: numberphoneC),
-            buildTextField(hintText: "Class", controller: classC),
+            buildTextField(hintText: "Number Phone", controller: passwordC),
+            buildTextField(hintText: "Class", controller: usernameC),
             buildTextField(hintText: "Email", controller: emailC),
             LoginButton(
               text: "Tambahkan",
@@ -42,21 +42,21 @@ class _CRWidgetDay19State extends State<CRWidgetDay19> {
                   Fluttertoast.showToast(msg: "Nama belum diisi");
                 } else if (emailC.text.isEmpty) {
                   Fluttertoast.showToast(msg: "Email belum diisi");
-                } else if (classC.text.isEmpty) {
+                } else if (usernameC.text.isEmpty) {
                   Fluttertoast.showToast(msg: "Class belum diisi");
-                } else if (numberphoneC.text.isEmpty) {
+                } else if (passwordC.text.isEmpty) {
                   Fluttertoast.showToast(msg: "Nomor Handphone belum diisi");
                 } else {
                   final StudentModel dataStudent = StudentModel(
                     name: nameC.text,
                     email: emailC.text,
-                    numberphone: classC.text,
-                    city: int.parse(numberphoneC.text),
+                    username: usernameC.text,
+                    password: int.parse(passwordC.text),
                   );
                   DbHelper.createStudent(dataStudent).then((value) {
                     emailC.clear();
-                    numberphoneC.clear();
-                    classC.clear();
+                    passwordC.clear();
+                    usernameC.clear();
                     nameC.clear();
                     getData();
                     Fluttertoast.showToast(msg: "Data berhasil ditambahkan");

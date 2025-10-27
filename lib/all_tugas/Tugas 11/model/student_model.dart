@@ -4,14 +4,14 @@ class StudentModel {
   int? id;
   String name;
   String email;
-  String numberphone;
-  int city;
+  String username;
+  int password;
   StudentModel({
     this.id,
     required this.name,
     required this.email,
-    required this.numberphone,
-    required this.city,
+    required this.username,
+    required this.password,
   });
 
   Map<String, dynamic> toMap() {
@@ -19,8 +19,8 @@ class StudentModel {
       'id': id,
       'name': name,
       'email': email,
-      'class': numberphone,
-      'city': city,
+      'class': username,
+      'password': password,
     };
   }
 
@@ -29,8 +29,8 @@ class StudentModel {
       id: map['id'] as int,
       name: map['name'] as String,
       email: map['email'] as String,
-      numberphone: map['class'] as String,
-      city: map['city'] as int,
+      username: map['class'] as String,
+      password: map['password'] as int,
     );
   }
 
