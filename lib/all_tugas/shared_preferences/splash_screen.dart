@@ -3,7 +3,7 @@ import 'package:belajar_flutter_b4/all_tugas/Tugas9Flutter/constant/app_image.da
 import 'package:belajar_flutter_b4/all_tugas/shared_preferences/preference_handler.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas2.dart';
 import 'package:belajar_flutter_b4/all_tugas/tugas8.dart';
-import 'package:belajar_flutter_b4/uvol/login_cad.dart';
+import 'package:belajar_flutter_b4/uvol/login.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

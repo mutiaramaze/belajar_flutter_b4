@@ -4,14 +4,14 @@ import 'package:belajar_flutter_b4/all_tugas/homepage.dart';
 import 'package:belajar_flutter_b4/all_tugas/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 
-class LoginCad extends StatefulWidget {
-  const LoginCad({super.key});
+class LoginUvol extends StatefulWidget {
+  const LoginUvol({super.key});
 
   @override
-  State<LoginCad> createState() => _LoginCadState();
+  State<LoginUvol> createState() => _LoginUvolState();
 }
 
-class _LoginCadState extends State<LoginCad> {
+class _LoginUvolState extends State<LoginUvol> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();

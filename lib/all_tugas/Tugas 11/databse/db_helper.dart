@@ -1,4 +1,4 @@
-import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/model/student_model.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/model/user_model.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/model/user_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
@@ -6,7 +6,7 @@ import 'package:path/path.dart';
 
 class DbHelper {
   static const tableUser = 'users';
-  static const tableStudent = 'students';
+  static const tableuser = 'users';
   static Future<Database> db() async {
     final dbPath = await getDatabasesPath();
     return openDatabase(
@@ -18,13 +18,14 @@ class DbHelper {
       },
 
       onUpgrade: (db, oldVersion, newVersion) async {
-        if (newVersion > 1) {
+        // if (newVersion > 1) {
+        if (oldVersion < newVersion) {
           await db.execute(
-            "CREATE TABLE $tableStudent(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, class TEXT, age int)",
+            "CREATE TABLE $tableuser(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, class TEXT, age int)",
           );
         }
       },
-      version: 1,
+      version: 5,
     );
   }
 
@@ -57,22 +58,43 @@ class DbHelper {
   }
 
   //MENAMBAHKAN SISWA
-  static Future<void> createStudent(StudentModel student) async {
+  static Future<void> createuser(UserModel user) async {
     final dbs = await db();
     //Insert adalah fungsi untuk menambahkan data (CREATE)
     await dbs.insert(
-      tableStudent,
-      student.toMap(),
+      tableuser,
+      user.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
-    print(student.toMap());
+    print(user.toMap());
   }
 
   //GET SISWA
-  static Future<List<UserModel>> getAllStudent() async {
+  static Future<List<UserModel>> getAllUser() async {
     final dbs = await db();
     final List<Map<String, dynamic>> results = await dbs.query(tableUser);
-    // print(results.map((e) => StudentModel.fromMap(e)).toList());
+    // print(results.map((e) => userModel.fromMap(e)).toList());
     return results.map((e) => UserModel.fromMap(e)).toList();
+  }
+
+  //UPDATE SISWA
+  static Future<void> updateModel(UserModel user) async {
+    final dbs = await db();
+    //Insert adalah fungsi untuk menambahkan data (CREATE)
+    await dbs.update(
+      tableUser,
+      user.toMap(),
+      where: "id = ?",
+      whereArgs: [user.id],
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+    print(user.toMap());
+  }
+
+  //DELETE SISWA
+  static Future<void> deleteModel(int id) async {
+    final dbs = await db();
+    //Insert adalah fungsi untuk menambahkan data (CREATE)
+    await dbs.delete(tableUser, where: "id = ?", whereArgs: [id]);
   }
 }
