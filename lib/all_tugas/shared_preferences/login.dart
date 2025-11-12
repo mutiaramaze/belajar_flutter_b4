@@ -1,5 +1,5 @@
 import 'package:belajar_flutter_b4/all_tugas/Tugas10%20Flutter/thankspage.dart';
-import 'package:belajar_flutter_b4/all_tugas/shared_preferences/preference_handler.dart';
+import 'package:belajar_flutter_b4/Uvol/widget/preference_handler.dart';
 import 'package:flutter/material.dart';
 
 class LoginSharedPreferences extends StatefulWidget {

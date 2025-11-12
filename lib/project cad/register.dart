@@ -1,21 +1,21 @@
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/databse/db_helper.dart';
-import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/model/user_model.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/loginT11.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/model/user_model.dart';
 import 'package:belajar_flutter_b4/all_tugas/elevatedbutton.dart';
 import 'package:belajar_flutter_b4/Uvol/widget/preference_handler.dart';
 import 'package:belajar_flutter_b4/all_tugas/widgets/login_button.dart';
+import 'package:belajar_flutter_b4/project%20cad/login.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-//Bahas Shared Preference
-class RegisterT11 extends StatefulWidget {
-  const RegisterT11({super.key});
+class RegisterUvol extends StatefulWidget {
+  const RegisterUvol({super.key});
   static const id = "/register";
   @override
-  State<RegisterT11> createState() => _RegisterT11State();
+  State<RegisterUvol> createState() => _RegisterUvolState();
 }
 
-class _RegisterT11State extends State<RegisterT11> {
+class _RegisterUvolState extends State<RegisterUvol> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
@@ -25,13 +25,6 @@ class _RegisterT11State extends State<RegisterT11> {
   Widget build(BuildContext context) {
     return Scaffold(body: Stack(children: [buildBackground(), buildLayer()]));
   }
-
-  // register() async {
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => HomeScreenDay15()),
-  //   );
-  // }
 
   final _formKey = GlobalKey<FormState>();
   SafeArea buildLayer() {
@@ -43,17 +36,14 @@ class _RegisterT11State extends State<RegisterT11> {
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              // crossAxisAlignment: CrossAxisAlignment.center,
+
               children: [
                 Text(
                   "Welcome",
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 height(8),
-                Text(
-                  "Register to access your account",
-                  // style: TextStyle(fontSize: 14, color: AppColor.gray88),
-                ),
+                Text("Register to access your account"),
 
                 height(16),
                 buildTitle("Name"),
@@ -134,7 +124,7 @@ class _RegisterT11State extends State<RegisterT11> {
                       Navigator.pop(context);
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginTugas11()),
+                        MaterialPageRoute(builder: (context) => LoginUvolCad()),
                       );
                     }
                   },

@@ -1,6 +1,8 @@
+import 'package:belajar_flutter_b4/API%20day%2031/views/dashboard.dart';
+import 'package:belajar_flutter_b4/API%20day%2031/views/home.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/view/list_data11.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/view/register.dart';
-import 'package:belajar_flutter_b4/uvol/login.dart';
+import 'package:belajar_flutter_b4/project%20cad/login.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/loginT11.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas10%20Flutter/thankspage.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas10%20Flutter/tugas10.dart';
@@ -18,7 +20,7 @@ import 'package:belajar_flutter_b4/all_tugas/tugas7/tugas7.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas9Flutter/tugas9.dart';
 
 import 'package:belajar_flutter_b4/all_tugas/tugas_slicing.dart';
-import 'package:belajar_flutter_b4/uvol/tes.dart';
+import 'package:belajar_flutter_b4/project%20cad/tes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -51,7 +54,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home: const RegisterT11(),
+      home: const HomeOfGOT(),
     );
   }
 }

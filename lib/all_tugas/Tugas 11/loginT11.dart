@@ -9,7 +9,7 @@ import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/view/register.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas10%20Flutter/thankspage.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas9Flutter/drawer9.dart';
 import 'package:belajar_flutter_b4/all_tugas/elevatedbutton.dart';
-import 'package:belajar_flutter_b4/all_tugas/shared_preferences/preference_handler.dart';
+import 'package:belajar_flutter_b4/Uvol/widget/preference_handler.dart';
 import 'package:belajar_flutter_b4/all_tugas/widgets/login_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
