@@ -3,9 +3,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({super.key, this.onPressed, required this.text});
+  const LoginButton({
+    super.key,
+    this.onPressed,
+    required this.text,
+    this.isLoading,
+  });
   final void Function()? onPressed;
   final String text;
+  final bool? isLoading;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

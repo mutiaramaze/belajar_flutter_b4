@@ -1,26 +1,33 @@
+import 'dart:convert';
+
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/databse/db_helper.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/loginT11.dart';
 import 'package:belajar_flutter_b4/all_tugas/Tugas%2011/model/user_model.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2015/models/register_model.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2015/service/api.dart';
+import 'package:belajar_flutter_b4/all_tugas/Tugas%2015/views/login.dart';
 import 'package:belajar_flutter_b4/all_tugas/elevatedbutton.dart';
-import 'package:belajar_flutter_b4/Uvol/widget/preference_handler.dart';
 import 'package:belajar_flutter_b4/all_tugas/widgets/login_button.dart';
-import 'package:belajar_flutter_b4/project%20cad/login.dart';
+
+import 'package:belajar_flutter_b4/widget/preference_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class RegisterUvol extends StatefulWidget {
-  const RegisterUvol({super.key});
+class RegisterT15 extends StatefulWidget {
+  const RegisterT15({super.key});
   static const id = "/register";
   @override
-  State<RegisterUvol> createState() => _RegisterUvolState();
+  State<RegisterT15> createState() => _RegisterT15State();
 }
 
-class _RegisterUvolState extends State<RegisterUvol> {
+class _RegisterT15State extends State<RegisterT15> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool isVisibility = false;
+  bool isLoading = false;
+  RegisterModel user = RegisterModel();
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Stack(children: [buildBackground(), buildLayer()]));
@@ -109,23 +116,50 @@ class _RegisterUvolState extends State<RegisterUvol> {
                 height(20),
                 LoginButton(
                   text: "Register",
-                  onPressed: () {
+                  isLoading: isLoading,
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      print(emailController.text);
-                      final UserModel data = UserModel(
-                        name: nameController.text,
-                        email: emailController.text,
-                        username: usernameController.text,
-                        password: passwordController.text,
-                      );
-                      DbHelper.registerUser(data);
-                      Fluttertoast.showToast(msg: "Register Berhasil");
-                      PreferenceHandler.saveLogin(true);
-                      Navigator.pop(context);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginUvolCad()),
-                      );
+                      setState(() {
+                        isLoading = true;
+                      });
+
+                      try {
+                        final result = await AuthAPI.registerUser(
+                          email: emailController.text,
+                          name: nameController.text,
+                          password: passwordController.text,
+                        );
+
+                        setState(() {
+                          isLoading = false;
+                          user = result;
+                        });
+
+                        PreferenceHandler.saveToken(user.data!.token!);
+
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginT15()),
+                        );
+                      } catch (e) {
+                        setState(() {
+                          isLoading = false;
+                        });
+
+                        // Coba decode json error kalau bisa
+                        try {
+                          final errorJson = jsonDecode(e.toString());
+                          final msg =
+                              errorJson["message"] ?? "Terjadi kesalahan";
+
+                          Fluttertoast.showToast(msg: msg);
+                        } catch (_) {
+                          Fluttertoast.showToast(msg: e.toString());
+                        }
+
+                        return;
+                      }
                     }
                   },
                 ),
@@ -185,9 +219,7 @@ class _RegisterUvolState extends State<RegisterUvol> {
                         print("Tombol teks ditekan");
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginTugas11(),
-                          ),
+                          MaterialPageRoute(builder: (context) => LoginT15()),
                         );
                       },
                       child: Text("Sign in"),

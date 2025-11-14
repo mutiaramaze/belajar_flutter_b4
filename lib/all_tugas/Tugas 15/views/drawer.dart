@@ -7,14 +7,14 @@ import 'package:belajar_flutter_b4/widget/preference_handler.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DrawerT11 extends StatefulWidget {
-  const DrawerT11({super.key});
+class DrawerT15 extends StatefulWidget {
+  const DrawerT15({super.key});
 
   @override
-  State<DrawerT11> createState() => _DrawerT11State();
+  State<DrawerT15> createState() => _DrawerT11State();
 }
 
-class _DrawerT11State extends State<DrawerT11> {
+class _DrawerT11State extends State<DrawerT15> {
   int _selectedIndex = 0;
   static const List<String> _titles = ["Profile", "List data"];
   static const List<Widget> _widgetOptions = [ProfilePage(), ListData11()];

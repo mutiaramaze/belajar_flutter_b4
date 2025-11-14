@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:belajar_flutter_b4/API%20day%2031/models/user_models.dart';
+import 'package:belajar_flutter_b4/all_tugas/API%20day%2031/models/user_models.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<GameOfThrones>> fetchGOT() async {

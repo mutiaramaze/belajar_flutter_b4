@@ -1,5 +1,5 @@
-import 'package:belajar_flutter_b4/API%20day%2031/views/dashboard.dart';
-import 'package:belajar_flutter_b4/Uvol/widget/app_images.dart';
+import 'package:belajar_flutter_b4/all_tugas/API%20day%2031/views/dashboard.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeOfGOT extends StatelessWidget {
@@ -47,7 +47,7 @@ class HomeOfGOT extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset(AppImages.got),
+            // Image.asset(AppImages.got),
             const SizedBox(height: 50),
             Divider(),
             SizedBox(height: 40),

@@ -13,4 +13,5 @@ class AppImage {
   static const tensimeter = "$assetImage/tensimeter.jpg";
   static const glukometer = "$assetImage/glukometer.jpg";
   static const got = "$assetImage/got.jpg";
+  static const uvol = "$assetImage/uvol_full.jpg";
 }
